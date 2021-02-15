@@ -11,7 +11,7 @@ class LocalImage:
         self._path = path
 
     def get_image(self):
-        return open(self._path, "rb")
+        return open(self._path, 'rb')
 
 
 class RemoteImage:
@@ -37,7 +37,7 @@ class _LoremFlickr(RemoteImage):
         super().__init__(self._build_url(keyword))
 
     def _build_url(self, keyword):
-        return f"{self.LOREM_FLICKR_URL}/" f"{self.WIDTH}/{self.HEIGHT}/{keyword}"
+        return f'{self.LOREM_FLICKR_URL}/{self.WIDTH}/{self.HEIGHT}/{keyword}'
 
 
 KeywordImage = _LoremFlickr
@@ -47,7 +47,7 @@ KeywordImage = _LoremFlickr
 # 단어를 대문자로 시작해 클래스처럼 보이도록 함
 def ImageSource(keyword):
     """최적의 이미지 소스 클래스를 반환함"""
-    if keyword.startswith(("http://", "https://")):
+    if keyword.startswith(('http://', 'https://')):
         return RemoteImage(keyword)
     elif Path(keyword).exists():
         return LocalImage(keyword)
