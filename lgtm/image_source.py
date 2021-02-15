@@ -29,7 +29,7 @@ class RemoteImage:
 class _LoremFlickr(RemoteImage):
     """키워드 검색으로부터 이미지를 얻음"""
 
-    LOREM_FLICKR_URL = "https://loremflickr.com"
+    LOREM_FLICKR_URL = 'https://loremflickr.com'
     WIDTH = 800
     HEIGHT = 600
 
@@ -37,7 +37,7 @@ class _LoremFlickr(RemoteImage):
         super().__init__(self._build_url(keyword))
 
     def _build_url(self, keyword):
-        return f'{self.LOREM_FLICKR_URL}/{self.WIDTH}/{self.HEIGHT}/{keyword}'
+        return (f'{self.LOREM_FLICKR_URL}/{self.WIDTH}/{self.HEIGHT}/{keyword}')
 
 
 KeywordImage = _LoremFlickr
